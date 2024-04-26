@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .product {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .product h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .product p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .product form {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .product form button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product">
+            <h1>{{ product.name }}</h1>
+            <p>{{ product.description }}</p>
+            <p>Price: ${{ product.price }}</p>
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit">Buy Now</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

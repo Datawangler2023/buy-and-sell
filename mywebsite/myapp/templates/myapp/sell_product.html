@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sell Product</title>
+</head>
+<body>
+    <h1>Sell a Product</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Product Name"><br>
+        <textarea name="description" placeholder="Product Description"></textarea><br>
+        <input type="text" name="price" placeholder="Price"><br>
+        <button type="submit">Sell Now</button>
+    </form>
+</body>
+</html>
