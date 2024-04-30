@@ -54,7 +54,7 @@
         <div class="product">
             <h1>{{ product.name }}</h1>
             <p>{{ product.description }}</p>
-            <p>Price: ${{ product.price }}</p>
+            <p>Price: ₹{{ product.price }}</p>
             <form method="POST">
                 {% csrf_token %}
                 <button type="submit">Buy Now</button>

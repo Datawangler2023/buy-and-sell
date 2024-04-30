@@ -9,13 +9,16 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-image: url('black.jpg'); /* Specify the path to your background image */
+            background-size: cover; /* Cover the entire background */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Do not repeat the background image */
         }
         .container {
             max-width: 1200px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8); /* Added opacity to the background color */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .product {
@@ -41,6 +44,20 @@
         .product a:hover {
             background-color: #0056b3;
         }
+        .sell-button {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #28a745; /* Green color for the button */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+        .sell-button:hover {
+            background-color: #218838; /* Darker green color on hover */
+        }
     </style>
 </head>
 <body>
@@ -51,14 +68,14 @@
                 <div class="product">
                     <h2>{{ product.name }}</h2>
                     <p>{{ product.description }}</p>
-                    <p>Price: ${{ product.price }}</p>
+                    <p>Price: ₹{{ product.price }}</p>
+                    <p>ID: {{ product.id }}</p>
                     <a href="{% url 'buy_product' product.id %}">Buy Now</a>
                 </div>
             {% endfor %}
         </div>
-        <a href="{% url 'sell_product' %}">Sell a Product</a>
-        <a href="{% url 'buy_product' product.id %}">Buy Now</a>
-
+        <button class="sell-button" onclick="location.href='{% url 'sell_product' %}'">Sell a Product</button>
+        <button class="sell-button" onclick="location.href='buy_product.html'">Buy a Product</button>
     </div>
 </body>
 </html>
